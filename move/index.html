@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .anime img {
+            display: none;
+            width: 600px;
+        }
+        
+        #anime_speed {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="anime">
+        <!-- <video src="image/IMG_0052.MOV"></video>
+        <video src="image/IMG_0053.MOV"></video> -->
+
+        <img src="image/20190813_animation_01.jpg " /></a>
+        <img src="image/20190813_animation_02.jpg " /></a>
+        <img src="image/20190813_animation_03.jpg " /></a>
+        <img src="image/20190813_animation_04.jpg " /></a>
+        <img src="image/20190813_animation_05.jpg " /></a>
+        <img src="image/20190813_animation_06.jpg " /></a>
+        <img src="image/20190813_animation_07.jpg " /></a>
+        <img src="image/20190813_animation_08.jpg " /></a>
+        <img src="image/20190813_animation_09.jpg " /></a>
+        <img src="image/20190813_animation_10.jpg " /></a>
+        <img src="image/20190813_animation_11.jpg " /></a>
+        <img src="image/20190813_animation_12.jpg " /></a>
+        <img src="image/20190813_animation_13.jpg " /></a>
+    </div>
+    <p>速度：<input type="range" id="anime_speed" value="500" min="100" max="500"></p>
+    <script>
+        var frames = document.getElementsByClassName('anime')[0].getElementsByTagName('img');
+        viewFrame();
+
+        function viewFrame(frame_no = -1) {
+            if (frames[frame_no]) {
+                frames[frame_no].style.display = 'none';
+            }
+            frame_no++;
+            if (frames[frame_no]) {
+                frames[frame_no].style.display = 'block';
+            } else {
+                frames[0].style.display = 'block';
+                frame_no = 0;
+            }
+            var msec = document.getElementById('anime_speed').value;
+            setTimeout(function() {
+                viewFrame(frame_no);
+            }, msec);
+        }
+    </script>
+</body>
+
+</html>

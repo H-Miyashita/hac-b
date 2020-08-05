@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <video controls id="v" width="480px" height="270px">
+        <source src="video/sample1.mp4" width="480px" height="270px">
+        <source src="video/sample1.webm" width="480px" height="270px">
+        <source src="video/sample1.ogg">
+        </video>
+
+    <button onClick="drawVideo()">スキャン</button>
+
+    <canvas id="c" width="480px" height="270px"></canvas>
+    <script>
+        function drawVideo() {
+            var video = document.getElementById("v");
+            var canvas = document.getElementById("c");
+            canvas.getContext("2d").drawImage(video, 0, 0, 480, 270);
+        }
+    </script>
+</body>
+
+</html>
