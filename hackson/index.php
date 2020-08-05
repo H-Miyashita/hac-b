@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
       <p><input type="text" id="before" name="start"/>から</p>
       <p><input type="text" id="after" name="end"/>まで</p>
       <p>
-        <button type="button" id="setting" onClick="autoclick()">
+        <button type="button" id="setting" onClick="submitclick()">
           セットして再生
         </button>
       </p>
