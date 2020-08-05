@@ -14,16 +14,27 @@
         <source src="video/sample1.ogg">
         </video>
 
-    <button onClick="drawVideo()">スキャン</button>
-
+    <button id="download_button" onClick="drawVideo()"><a>スキャン</a></button>
+    <a id="download_link"></a>
     <canvas id="c" width="480px" height="270px"></canvas>
     <script>
         function drawVideo() {
+            var downloadLink = document.getElementById('download_link');
             var video = document.getElementById("v");
             var canvas = document.getElementById("c");
+            var filename = 'your-filename.png';
             canvas.getContext("2d").drawImage(video, 0, 0, 480, 270);
+            var button = document.getElementById('download_button');
+
+            button.addEventListener('click', function() {
+                var base64 = canvas.toDataURL("image/png");
+                downloadLink.href = base64
+                downloadLink.download = filename;
+                downloadLink.click();
+            })
         }
     </script>
 </body>
+動画が再生されたとき（６０分の１）
 
 </html>
